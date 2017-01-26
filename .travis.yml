@@ -5,4 +5,4 @@ install:
   - pip install -Ur requirements.txt
 
 script: 
-  - runtests.sh
+  - ./runtests.sh
