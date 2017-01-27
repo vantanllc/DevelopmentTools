@@ -38,6 +38,28 @@ class TestGetPngFromSvg(object):
     assert status_code == -1
 
 
-  def test_get_png_from_svg__given_svg_file__calls_inkscape_with_svg_file(self):
+  def test_get_png_from_svg__given_svg_file_and_output_file_path__calls_inkscape(self):
+    status_code = get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH)
+    self.subprocess.call.assert_called_with([INKSCAPE_COMMAND, mock.ANY, mock.ANY, mock.ANY, mock.ANY])
+  
+
+  def test_get_png_from_svg__given_svg_file_and_output_file_path__calls_with_svg_file(self):
     status_code = get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH)
     self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, mock.ANY, mock.ANY, SVG_FILE_PATH])
+
+
+  def test_get_png_from_svg__given_svg_file_and_output_file_path__calls_with_output_file(self):
+    status_code = get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH)
+    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, mock.ANY, OUTPUT_FILE_PATH, mock.ANY])
+
+
+  def test_get_png_from_svg__given_svg_file_and_output_file_path__calls_with_no_gui_flag(self):
+    status_code = get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH)
+    self.subprocess.call.assert_called_with([mock.ANY, NO_GUI_FLAG, mock.ANY, mock.ANY, mock.ANY])
+
+
+  def test_get_png_from_svg__given_svg_file_and_output_file_path__calls_with_output_png_flag(self):
+    status_code = get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH)
+    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, OUTPUT_PNG_FLAG, mock.ANY, mock.ANY])
+
+
