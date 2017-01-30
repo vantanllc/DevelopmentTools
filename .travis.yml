@@ -1,6 +1,8 @@
 language: python
 python: 3.6
 
+sudo: required
+
 install: 
   - apt-get update
   - apt-get install inkscape
