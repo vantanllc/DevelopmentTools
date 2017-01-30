@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64pt"
+   height="78pt"
+   viewBox="0 0 80.000002 97.5"
+   id="svg4077"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="GrayBall.svg">
+  <defs
+     id="defs4079">
+    <radialGradient
+       id="radialGradient5155"
+       xlink:href="#linearGradient5145"
+       gradientUnits="userSpaceOnUse"
+       cy="330.5"
+       cx="65"
+       gradientTransform="matrix(1,0,0,0.61921,0,125.85)"
+       r="53.834999"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient5145">
+      <stop
+         id="stop5147"
+         style="stop-color:#fdfdfd"
+         offset="0" />
+      <stop
+         id="stop5151"
+         style="stop-color:#808080"
+         offset="1" />
+    </linearGradient>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter4608"
+       height="1.9808"
+       width="1.4904"
+       y="-0.49039999"
+       x="-0.24519999"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur4610"
+         stdDeviation="8.377633"
+         inkscape:collect="always" />
+    </filter>
+    <radialGradient
+       id="radialGradient5143"
+       xlink:href="#linearGradient5145"
+       gradientUnits="userSpaceOnUse"
+       cy="352.5"
+       cx="66.5"
+       gradientTransform="matrix(1.5843,0.022472,-0.014183,0.9999,-33.854,-1.4589)"
+       r="44.5"
+       inkscape:collect="always" />
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter4578"
+       height="1.6181"
+       width="1.3652"
+       y="-0.30903"
+       x="-0.18261001"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur4580"
+         stdDeviation="3.3478261"
+         inkscape:collect="always" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.5136364"
+     inkscape:cx="19.801372"
+     inkscape:cy="60.614829"
+     inkscape:document-units="pt"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1276"
+     inkscape:window-height="755"
+     inkscape:window-x="8"
+     inkscape:window-y="5"
+     inkscape:window-maximized="0"
+     units="pt" />
+  <metadata
+     id="metadata4082">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-954.86222)">
+    <g
+       id="g4089"
+       transform="matrix(0.930088,0,0,0.930088,-139.67161,444.11793)">
+      <ellipse
+         transform="matrix(0.7038,0,0,0.92158,147.43,311.96)"
+         style="fill:url(#radialGradient5155);filter:url(#filter4608)"
+         id="path5088"
+         cx="65"
+         cy="330.5"
+         rx="41"
+         ry="20.5" />
+      <g
+         id="g4085">
+        <circle
+           id="path5090"
+           style="opacity:0.98999999;fill:url(#radialGradient5143)"
+           transform="matrix(0.75231,0,0,0.75231,142.13,352.75)"
+           cx="67.5"
+           cy="308.5"
+           r="44.5" />
+        <ellipse
+           id="path5092"
+           style="opacity:0.79645996;fill:#ffffff;filter:url(#filter4578)"
+           transform="matrix(0.75231,0,0,0.75231,142.13,372.31)"
+           cx="67"
+           cy="260"
+           rx="22"
+           ry="13" />
+      </g>
+    </g>
+  </g>
+</svg>
