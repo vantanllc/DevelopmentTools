@@ -4,8 +4,8 @@ python: 3.6
 sudo: required
 
 install: 
-  - apt-get update
-  - apt-get install inkscape
+  - sudo apt-get update
+  - sudo apt-get install inkscape
   - pip install -Ur requirements.txt
 
 script: 
