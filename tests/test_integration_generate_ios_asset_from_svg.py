@@ -8,10 +8,12 @@ class TestIntegrationGenerateIOSAsset(object):
   svg_test_dir = "/tmp/svg_test_dir"
   svg_file = "GrayBall.svg"
   png_file = "GrayBall.png"
-  svg_width = 64
-  svg_height= 78
+  png_file_2x = "GrayBall@2x.png"
+  svg_width_2x = 64
+  svg_height_2x = 78
   input_file = "{}/{}".format(svg_test_dir, svg_file)
   output_file = "{}/{}".format(svg_test_dir, png_file)
+  output_file_2x = "{}/{}".format(svg_test_dir, png_file_2x)
           
   def setup_method(self):
     cwd = os.getcwd()
@@ -27,11 +29,16 @@ class TestIntegrationGenerateIOSAsset(object):
     status_code = get_ios_asset_from_svg(self.input_file, self.svg_test_dir)
     assert status_code == 0
 
-  
-  def test_generate_ios_assert_from_svg__returns_png_with_original_size(self):
+
+  def test_generate_ios_asset_from_svg__returns_png_2x_file(self):
     get_ios_asset_from_svg(self.input_file, self.svg_test_dir)
-    with Image.open(self.output_file) as image:
+    assert os.path.isfile(self.output_file_2x) 
+
+  
+  def test_generate_ios_assert_from_svg__returns_png_2x_with_original_size(self):
+    get_ios_asset_from_svg(self.input_file, self.svg_test_dir)
+    with Image.open(self.output_file_2x) as image:
       width, height = image.size
-      assert width == self.svg_width
-      assert height == self.svg_height
+      assert width == self.svg_width_2x
+      assert height == self.svg_height_2x
 
