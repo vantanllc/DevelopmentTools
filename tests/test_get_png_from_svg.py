@@ -10,7 +10,8 @@ OUTPUT_PNG_FLAG = "-e"
 WIDTH_FLAG = "-w"
 HEIGHT_FLAG = "-h"
 DPI_FLAG = "-d"
-DPI = "72"
+DPI = "90"
+DRAWABLE_FLAG = "-D"
 EXPECTED_WIDTH = 100
 EXPECTED_HEIGHT = 200
 
@@ -46,39 +47,39 @@ class TestGetPngFromSvg(object):
 
   def test_get_png_from_svg__given_svg_file_and_output_file_path__calls_inkscape(self):
     get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH)
-    self.subprocess.call.assert_called_with([INKSCAPE_COMMAND, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY])
+    self.subprocess.call.assert_called_with([INKSCAPE_COMMAND, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY])
   
 
   def test_get_png_from_svg__given_svg_file_and_output_file_path__calls_with_svg_file(self):
     get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH)
-    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, mock.ANY, mock.ANY, SVG_FILE_PATH, mock.ANY, mock.ANY])
+    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, mock.ANY, mock.ANY, SVG_FILE_PATH, mock.ANY, mock.ANY, mock.ANY])
 
 
   def test_get_png_from_svg__given_svg_file_and_output_file_path__calls_with_output_file(self):
     get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH)
-    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, mock.ANY, OUTPUT_FILE_PATH, mock.ANY, mock.ANY, mock.ANY])
+    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, mock.ANY, OUTPUT_FILE_PATH, mock.ANY, mock.ANY, mock.ANY, mock.ANY])
 
 
   def test_get_png_from_svg__given_svg_file_and_output_file_path__calls_with_no_gui_flag(self):
     get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH)
-    self.subprocess.call.assert_called_with([mock.ANY, NO_GUI_FLAG, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY])
+    self.subprocess.call.assert_called_with([mock.ANY, NO_GUI_FLAG, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY])
 
 
   def test_get_png_from_svg__given_svg_file_and_output_file_path__calls_with_output_png_flag(self):
     get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH)
-    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, OUTPUT_PNG_FLAG, mock.ANY, mock.ANY, mock.ANY, mock.ANY])
+    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, OUTPUT_PNG_FLAG, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY])
 
 
   def test_get_png_from_svg__given_svg_file_and_output_file_path__calls_with_dpi_flag_and_value(self):
     get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH)
-    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, OUTPUT_PNG_FLAG, mock.ANY, mock.ANY, DPI_FLAG, DPI])
+    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, OUTPUT_PNG_FLAG, mock.ANY, mock.ANY, DPI_FLAG, DPI, mock.ANY])
 
 
   def test_get_png_from_svg__given_width__calls_with_width_flag_and_value(self):
     get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH, EXPECTED_WIDTH)
-    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, WIDTH_FLAG, EXPECTED_WIDTH])
+    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, WIDTH_FLAG, EXPECTED_WIDTH])
 
 
   def test_get_png_from_svg__given_height__calls_with_height_flag_and_value(self):
     get_png_from_svg(SVG_FILE_PATH, OUTPUT_FILE_PATH, None, EXPECTED_HEIGHT)
-    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, HEIGHT_FLAG, EXPECTED_HEIGHT])
+    self.subprocess.call.assert_called_with([mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, mock.ANY, HEIGHT_FLAG, EXPECTED_HEIGHT])
