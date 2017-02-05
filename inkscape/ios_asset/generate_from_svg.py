@@ -17,9 +17,12 @@ def get_height_of_svg(input_file):
 
 def _create_1x_asset(input_file, output_dir):
   file_name = input_file.split("/")[-1]
+  scale = 0.5
+  width = get_width_of_svg(input_file) * scale
+  height = get_height_of_svg(input_file) * scale
   file_name_png = file_name.replace(".svg", ".png")
   output_file = "{}/{}".format(output_dir, file_name_png)
-  return get_png_from_svg(input_file, output_file) 
+  return get_png_from_svg(input_file, output_file, str(width), str(height)) 
 
 
 def _create_2x_asset(input_file, output_dir):
