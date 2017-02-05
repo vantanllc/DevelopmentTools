@@ -50,9 +50,15 @@ def _create_2x_asset(input_file, output_dir):
   return get_png_from_svg(input_file, output_file) 
 
 if __name__ == "__main__":
-  input_file = sys.argv[1]
+  input_dir = sys.argv[1]
   output_dir = sys.argv[2]
   if not os.path.isdir(output_dir):
     os.makedirs(output_dir)
-  get_ios_asset_from_svg(input_file, output_dir)
+
+  for root, dirs, file_names in os.walk(input_dir):
+    for file_name in file_names:
+      file_path = os.path.join(root, file_name)
+      if os.path.isfile(file_path) and file_path.endswith(".svg"):
+        print(file_path)
+        get_ios_asset_from_svg(file_path, output_dir)
  
