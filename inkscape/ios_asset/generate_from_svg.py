@@ -1,3 +1,11 @@
+import sys
+import os
+
+try:
+  sys.path.index(os.getcwd())
+except ValueError:
+  sys.path.append(os.getcwd())
+
 from inkscape.svg_to_png.get_png_from_svg import get_png_from_svg
 import subprocess
 
@@ -41,4 +49,10 @@ def _create_2x_asset(input_file, output_dir):
   output_file = "{}/{}".format(output_dir, file_name_png)
   return get_png_from_svg(input_file, output_file) 
 
-
+if __name__ == "__main__":
+  input_file = sys.argv[1]
+  output_dir = sys.argv[2]
+  if not os.path.isdir(output_dir):
+    os.makedirs(output_dir)
+  get_ios_asset_from_svg(input_file, output_dir)
+ 
