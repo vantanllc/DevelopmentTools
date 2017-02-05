@@ -10,11 +10,13 @@ class TestIntegrationGenerateIOSAsset(object):
   svg_file = "GrayBall.svg"
   png_file = "GrayBall.png"
   png_file_2x = "GrayBall@2x.png"
+  png_file_3x = "GrayBall@3x.png"
   svg_width_2x = 64
   svg_height_2x = 76
   input_file = "{}/{}".format(svg_test_dir, svg_file)
   output_file = "{}/{}".format(svg_test_dir, png_file)
   output_file_2x = "{}/{}".format(svg_test_dir, png_file_2x)
+  output_file_3x = "{}/{}".format(svg_test_dir, png_file_3x)
           
   def setup_method(self):
     cwd = os.getcwd()
@@ -57,6 +59,22 @@ class TestIntegrationGenerateIOSAsset(object):
       width, height = image.size
       assert width == self.svg_width_2x
       assert height == self.svg_height_2x
+
+
+  def test_generate_ios_asset_from_svg__returns_png_3x_file(self):
+    get_ios_asset_from_svg(self.input_file, self.svg_test_dir)
+    assert os.path.isfile(self.output_file_3x) 
+
+
+  def test_generate_ios_assert_from_svg__returns_png_3x_of_1x_size(self):
+    get_ios_asset_from_svg(self.input_file, self.svg_test_dir)
+    with Image.open(self.output_file_3x) as image:
+      width, height = image.size
+      scale = 1.5
+      expected_width = self.svg_width_2x * scale
+      expected_height = self.svg_height_2x * scale
+      assert width == expected_width
+      assert height == expected_height
 
 
   def test_get_width_of_svg__returns_expected_width(self):
