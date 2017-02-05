@@ -1,4 +1,4 @@
-from inkscape.ios_asset.generate_from_svg import get_ios_asset_from_svg 
+from inkscape.ios_asset.generate_from_svg import get_ios_asset_from_svg, get_width_of_svg, get_height_of_svg
 from PIL import Image
 import os
 import subprocess
@@ -10,8 +10,8 @@ class TestIntegrationGenerateIOSAsset(object):
   svg_file = "GrayBall.svg"
   png_file = "GrayBall.png"
   png_file_2x = "GrayBall@2x.png"
-  svg_width_2x = None
-  svg_height_2x = None
+  svg_width_2x = 64
+  svg_height_2x = 76
   input_file = "{}/{}".format(svg_test_dir, svg_file)
   output_file = "{}/{}".format(svg_test_dir, png_file)
   output_file_2x = "{}/{}".format(svg_test_dir, png_file_2x)
@@ -20,8 +20,6 @@ class TestIntegrationGenerateIOSAsset(object):
     cwd = os.getcwd()
     os.makedirs(self.svg_test_dir)
     copyfile("{}/tests/svgs/{}".format(cwd, self.svg_file), "{}/{}".format(self.svg_test_dir, self.svg_file))
-    self.svg_width_2x = float(subprocess.check_output(["inkscape", "-z", "-W", self.input_file]).decode('utf-8'))
-    self.svg_height_2x = round(float(subprocess.check_output(["inkscape", "-z", "-H", self.input_file]).decode('utf-8')))
 
 
   def teardown_method(self):
@@ -59,4 +57,14 @@ class TestIntegrationGenerateIOSAsset(object):
       width, height = image.size
       assert width == self.svg_width_2x
       assert height == self.svg_height_2x
+
+
+  def test_get_width_of_svg__returns_expected_width(self):
+    width = get_width_of_svg(self.input_file)
+    assert width == self.svg_width_2x
+
+
+  def test_get_height_of_svg__returns_expected_height(self):
+    height = get_height_of_svg(self.input_file)
+    assert height == self.svg_height_2x
 
