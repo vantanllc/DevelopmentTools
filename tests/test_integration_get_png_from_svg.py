@@ -3,7 +3,7 @@ import os
 from shutil import copyfile, rmtree
 import pytest
 
-class TestIntegrationGetPnyFromSvg(object):
+class TestIntegrationGetPngFromSvg(object):
   svg_test_dir = "/tmp/svg_test_dir"
   svg_file = "GrayBall.svg"
   png_file = "GrayBall.png"

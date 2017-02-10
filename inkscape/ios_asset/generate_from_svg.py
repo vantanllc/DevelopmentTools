@@ -1,5 +1,6 @@
 import sys
 import os
+import xml.etree.ElementTree as ET
 
 try:
   sys.path.index(os.getcwd())
@@ -17,12 +18,20 @@ def get_ios_asset_from_svg(input_file, output_dir):
 
 
 def get_width_of_svg(input_file):
-  return round(float(subprocess.check_output(["inkscape", "-z", "-W", input_file]).decode('utf-8')))
+  svg_settings = _get_svg_settings(input_file)
+  return int(svg_settings["width"])
 
 
 def get_height_of_svg(input_file):
-  return round(float(subprocess.check_output(["inkscape", "-z", "-H", input_file]).decode('utf-8'))) 
+  svg_settings = _get_svg_settings(input_file)
+  return int(svg_settings["height"])
 
+
+def _get_svg_settings(input_file):
+  tree = ET.parse(input_file)
+  svg_root = tree.getroot()
+  return {tuple_item[0]: tuple_item[1] for tuple_item in svg_root.items()}
+  
 
 def _create_1x_asset(input_file, output_dir):
   file_name = input_file.split("/")[-1]

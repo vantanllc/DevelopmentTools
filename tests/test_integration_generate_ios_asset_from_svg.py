@@ -10,7 +10,7 @@ class TestIntegrationGenerateIOSAsset(object):
   svg_file = "GrayBall.svg"
   png_file = "GrayBall.png"
   svg_width_2x = 64
-  svg_height_2x = 76
+  svg_height_2x = 80
   input_file = "{}/{}".format(svg_test_dir, svg_file)
   output_file = "{}/{}".format(svg_test_dir, png_file)
           
